@@ -1,5 +1,6 @@
 package nodes.util;
 
+import javafx.scene.control.TreeItem;
 import nodes.ClassNode;
 
 import java.util.ArrayList;
@@ -53,18 +54,30 @@ public abstract class RealNode implements INode {
         }
     }
 
-    public String toTree() {
+    public String toTextTree() {
         StringBuilder s = new StringBuilder();
         s.append(tree+"\n");
         for (RealNode c : children) {
-            s.append(c.toTree());
+            s.append(c.toTextTree());
         }
 
         return s.toString();
     }
 
+    public TreeItem toTreeItem() {
+        updateTree();
+        TreeItem parent = new TreeItem(name);
+
+        for (RealNode child : children) {
+            parent.getChildren().add(child.toTreeItem());
+        }
+
+        return parent;
+    }
+
     @Override
     public void addChild(RealNode child) {
+        updateTree();
         this.children.add(child);
     }
 

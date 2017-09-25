@@ -1,17 +1,9 @@
-.accordion {
-    -fx-background-color: #333333;
-    -fx-text-fill: white;
-    -fx-alignment: CENTER;
-}
-
 .tree-view {
     -fx-background-color: #333333;
     -fx-text-fill: white;
-    -fx-alignment: CENTER;
 }
 
 .tree-cell {
     -fx-background-color: #333333;
     -fx-text-fill: white;
-    -fx-alignment: CENTER;
 }
