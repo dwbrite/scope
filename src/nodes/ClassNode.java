@@ -3,6 +3,8 @@ package nodes;
 import nodes.util.RealNode;
 import nodes.util.SortByNode;
 
+import java.io.File;
+
 public class ClassNode extends RealNode {
     public static boolean isShowingExtension = true;
 
@@ -10,9 +12,9 @@ public class ClassNode extends RealNode {
         super(directory, parent);
 
         if(isShowingExtension) {
-            this.name =  directory.substring(directory.lastIndexOf('\\')+1);
+            this.name =  directory.substring(directory.lastIndexOf(File.separator)+1);
         } else {
-            this.name = directory.substring(directory.lastIndexOf('\\')+1, directory.lastIndexOf('.'));
+            this.name = directory.substring(directory.lastIndexOf(File.separator)+1, directory.lastIndexOf('.'));
         }
 
         parent.addChild(this);

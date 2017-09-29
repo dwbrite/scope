@@ -44,7 +44,9 @@ public class PrimaryWindow extends Application {
 
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
-        primaryStage.setMaximized(true);
+        primaryStage.setWidth(1024);
+        primaryStage.setHeight(640);
+        //primaryStage.setMaximized(true);
         primaryStage.show();
     }
 

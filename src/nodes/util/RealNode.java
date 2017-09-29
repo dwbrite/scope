@@ -3,6 +3,7 @@ package nodes.util;
 import javafx.scene.control.TreeItem;
 import nodes.ClassNode;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public abstract class RealNode implements INode {
@@ -34,7 +35,7 @@ public abstract class RealNode implements INode {
 
         StringBuilder sb = new StringBuilder();
 
-        int n = directory.split("\\\\").length;
+        int n = directory.split(File.separator).length;
         for(int i = 2; i < n; i++) {
             sb.append("│  ");
         }
