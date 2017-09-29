@@ -1,9 +1,34 @@
-.tree-view {
+.tree-view:focused {
     -fx-background-color: #333333;
-    -fx-text-fill: white;
+    -fx-background-insets: 0, 0, 0;
+    -fx-background-radius: 0, 0, 0;
+}
+
+.tree-view {
+ /*   -fx-background-color: #333333;
+    -fx-background-insets: 0, 0, 0;
+    -fx-background-radius: 0, 0, 0;*/
+    -fx-padding: 0px;
 }
 
 .tree-cell {
     -fx-background-color: #333333;
-    -fx-text-fill: white;
+    -fx-text-fill: #ccc;
+    -fx-font-size: 12px;
+}
+
+.tree-cell .tree-disclosure-node .arrow {
+    -fx-background-color: #ccc;
+    -fx-shape: "M 0 -3.5 L 4 0 L 0 3.5 z";
+    -fx-content-display: center;
+}
+
+.tree-cell:expanded .tree-disclosure-node .arrow {
+    -fx-content-display: center;
+    -fx-background-color: #ccc;
+    -fx-rotate: 90;
+}
+
+.tree-cell:selected {
+    -fx-background-color: #659acc;
 }
