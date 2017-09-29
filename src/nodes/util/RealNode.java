@@ -15,7 +15,7 @@ public abstract class RealNode implements INode {
     protected INode parent;
 
     public RealNode(String directory, INode parent) {
-        this.directory = directory;
+        this.directory = directory.replace("\\", "/");
         this.parent = parent;
     }
 
@@ -34,8 +34,6 @@ public abstract class RealNode implements INode {
         children.sort(new SortByNode());
 
         StringBuilder sb = new StringBuilder();
-
-        directory = directory.replace("\\", "/");
 
         int n = directory.split("/").length;
         for(int i = 2; i < n; i++) {

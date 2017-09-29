@@ -12,9 +12,9 @@ public class ClassNode extends RealNode {
         super(directory, parent);
 
         if(isShowingExtension) {
-            this.name =  directory.substring(directory.lastIndexOf('/')+1);
+            this.name =  this.directory.substring(this.directory.lastIndexOf("/")+1);
         } else {
-            this.name = directory.substring(directory.lastIndexOf('/')+1, directory.lastIndexOf('.'));
+            this.name = this.directory.substring(this.directory.lastIndexOf("/")+1, this.directory.lastIndexOf('.'));
         }
 
         parent.addChild(this);
