@@ -35,7 +35,9 @@ public abstract class RealNode implements INode {
 
         StringBuilder sb = new StringBuilder();
 
-        int n = directory.split(File.separator).length;
+        directory = directory.replace("\\", "/");
+
+        int n = directory.split("/").length;
         for(int i = 2; i < n; i++) {
             sb.append("│  ");
         }
