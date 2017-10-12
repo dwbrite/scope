@@ -1,4 +1,5 @@
-import gui.PrimaryWindow;
+import gui.windows.PrimaryWindow;
+import gui.windows.SelectProject;
 
 public class ScopeMain {
 
@@ -10,12 +11,16 @@ public class ScopeMain {
             @Override
             public void run() {
                 super.run();
-                PrimaryWindow.createWindow();
+                //PrimaryWindow.createWindow();
+                SelectProject.createWindow();
             }
         };
         open.start();
 
         System.out.println("You're welcome to scope :)");
+
+
+
 
         // If project doesn't exist, open a new one.
         /*

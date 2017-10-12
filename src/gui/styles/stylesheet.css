@@ -32,3 +32,36 @@
 .tree-cell:selected {
     -fx-background-color: #659acc;
 }
+
+.project-list {
+    -fx-background-color: #333;
+    -fx-min-width: 256px;
+    -fx-alignment: top-center;
+}
+
+.project-list .list-cell {
+    -fx-padding: 16px;
+    -fx-background-color: #333333;
+}
+
+.project-list .list-cell:selected {
+    -fx-background-color: #659acc;
+}
+
+.project-list .list-cell:selected .project-label {
+    -fx-text-fill: #333333;
+}
+
+.project-label {
+    -fx-text-fill: #ccc;
+    -fx-alignment: center;
+}
+
+.project-label:selected {
+    -fx-background-color: #659acc;
+}
+
+.scope-welcome {
+    -fx-background-color: #444;
+    -fx-alignment: center;
+}
