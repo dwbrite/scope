@@ -1,37 +1,32 @@
 package gui.windows;
 
+import gui.controls.ProjectTree;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.scene.shape.Line;
 import javafx.stage.Stage;
-import nodes.RootNode;
-import nodes.util.RealNode;
 
 public class PrimaryWindow extends Application {
 
     @Override
     public void start(Stage primaryStage) {
 
-        Line ln = new Line();
-
         Menu file = new Menu("file");
-        file.getItems().addAll(new MenuItem("o"), new MenuItem("hej"));
+        file.getItems().addAll(new MenuItem("oh"), new MenuItem("hey"));
 
         MenuBar top = new MenuBar();
         top.getMenus().add(file);
 
-        TreeView left = new TreeView();
 
-        // TODO: remove temp line
-        TreeItem troot = RootNode.initFromDirectory("Scope", "src").toTreeItem();
-        left.setRoot(troot);
-        troot.setExpanded(true);
+        Label title = new Label();
+        ListView<Label> contents = new ListView<>();
+        ScrollPane topRight = new ScrollPane();
+        VBox right = new VBox();
 
         BorderPane bp = new BorderPane();
         bp.setTop(top);
-        bp.setLeft(left);
+        bp.setLeft(ProjectTree.getInstance().getLeft());
 
         StackPane root = new StackPane();
         root.getChildren().add(bp);
