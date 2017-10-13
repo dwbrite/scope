@@ -11,8 +11,8 @@ public class ScopeMain {
             @Override
             public void run() {
                 super.run();
-                //PrimaryWindow.createWindow();
-                SelectProject.createWindow();
+                PrimaryWindow.createWindow();
+                //SelectProject.createWindow();
             }
         };
         open.start();
