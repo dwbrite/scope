@@ -1,5 +1,4 @@
-import gui.windows.PrimaryWindow;
-import gui.windows.SelectProject;
+import gui.windows.primary.PrimaryWindow;
 
 public class ScopeMain {
 

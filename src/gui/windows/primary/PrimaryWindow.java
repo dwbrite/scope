@@ -1,6 +1,7 @@
-package gui.windows;
+package gui.windows.primary;
 
-import gui.controls.ProjectTree;
+import gui.windows.primary.controls.ProjectMenu;
+import gui.windows.primary.controls.ProjectTree;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -11,27 +12,15 @@ public class PrimaryWindow extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-
-        Menu file = new Menu("file");
-        file.getItems().addAll(new MenuItem("oh"), new MenuItem("hey"));
-
-        MenuBar top = new MenuBar();
-        top.getMenus().add(file);
-
-
-        Label title = new Label();
-        ListView<Label> contents = new ListView<>();
-        ScrollPane topRight = new ScrollPane();
-        VBox right = new VBox();
-
         BorderPane bp = new BorderPane();
-        bp.setTop(top);
-        bp.setLeft(ProjectTree.getInstance().getLeft());
 
+        // Populate border pane
+        bp.setTop(ProjectMenu.getInstance().getMenuBar());
+        bp.setLeft(ProjectTree.getInstance().getTreeView());
+
+        //TODO: Decide whether or not we want to use a stack pane.
         StackPane root = new StackPane();
         root.getChildren().add(bp);
-
-        //root.getChildren().add(btn);
 
         Scene scene = new Scene(root);
 
@@ -41,7 +30,6 @@ public class PrimaryWindow extends Application {
         primaryStage.setScene(scene);
         primaryStage.setWidth(1024);
         primaryStage.setHeight(640);
-        //primaryStage.setMaximized(true);
         primaryStage.show();
     }
 
