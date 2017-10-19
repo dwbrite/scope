@@ -1,5 +1,6 @@
 package gui.windows.primary;
 
+import gui.windows.primary.controls.ElementView;
 import gui.windows.primary.controls.ProjectMenu;
 import gui.windows.primary.controls.ProjectTree;
 import javafx.application.Application;
@@ -7,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import util.ScopeConfig;
 
 public class PrimaryWindow extends Application {
 
@@ -15,16 +17,27 @@ public class PrimaryWindow extends Application {
         BorderPane bp = new BorderPane();
 
         // Populate border pane
-        bp.setTop(ProjectMenu.getInstance().getMenuBar());
-        bp.setLeft(ProjectTree.getInstance().getTreeView());
+        bp.setTop(ProjectMenu.getInstance());
+        //bp.setLeft(ProjectTree.getInstance());
+        //bp.setRight(ElementView.getInstance());
 
-        //TODO: Decide whether or not we want to use a stack pane.
-        StackPane root = new StackPane();
-        root.getChildren().add(bp);
+        Pane fp = new Pane();
+        fp.setId("center-pane");
 
-        Scene scene = new Scene(root);
+        SplitPane sp = new SplitPane();
+        sp.getItems().addAll(
+                ProjectTree.getInstance(),
+                fp,
+                ElementView.getInstance()
+        );
 
-        scene.getStylesheets().add("gui/styles/stylesheet.css");
+        sp.setDividerPosition(0, 0.05);
+        bp.setCenter(sp);
+
+
+        Scene scene = new Scene(bp);
+
+        scene.getStylesheets().add(ScopeConfig.getCss());
 
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);

@@ -1,47 +1,99 @@
 package gui.windows.primary.controls;
 
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollPane;
+import javafx.geometry.Orientation;
+import javafx.geometry.Pos;
+import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import lombok.Data;
 
 @Data
-public class ElementView {
+public class ElementView extends SplitPane {
     private static ElementView elementView = new ElementView();
     public static ElementView getInstance() {
         return elementView;
     }
 
-    private VBox viewContainer = new VBox();
-
     private ElementView() {
-        
+        getItems().addAll(
+                ElementSummary.getInstance(),
+                ElementElaboration.getInstance()
+        );
+        setOrientation(Orientation.VERTICAL);
+
+        setId("element-view");
     }
 }
 
-class ElementSummary { 
+@Data
+class ElementSummary extends VBox {
     private static ElementSummary overview = new ElementSummary();
     public static ElementSummary getInstance() { return overview; }
 
     private Label title = new Label();
-    private ScrollPane topRight = new ScrollPane();
-    private ListView<Label> contents = new ListView<>();
+    private ListView<Label> fields = new ListView<>();
+    private ListView<Label> functions = new ListView<>();
 
-    //etc
-    
     ElementSummary() {
-        
+        Separator listSeparator = new Separator();
+
+        title.setText("ClassTitle");
+        title.setId("summary-title");
+        listSeparator.setId("list-separator");
+        fields.setId("fields-list");
+        functions.setId("functions-list");
+
+        fields.getItems().addAll(
+                new Label("+ tempField"),
+                new Label("+ tempField"),
+                new Label("+ tempField"),
+                new Label("+ tempField")
+        );
+
+
+        functions.getItems().addAll(
+                new Label("+ tempFunction()"),
+                new Label("+ tempFunction()"),
+                new Label("+ tempFunction()"),
+                new Label("+ tempFunction()"),
+                new Label("+ tempFunction()"),
+                new Label("+ tempFunction()"),
+                new Label("+ tempFunction()"),
+                new Label("+ tempFunction()"),
+                new Label("+ tempFunction()"),
+                new Label("+ tempFunction()"),
+                new Label("+ tempFunction()"),
+                new Label("+ tempFunction()"),
+                new Label("+ tempFunction()")
+        );
+
+        getChildren().addAll(title,
+                new Separator(),
+                fields,
+                listSeparator,
+                functions
+        );
+
+        this.setSpacing(0);
+        setAlignment(Pos.TOP_LEFT);
+
+        setId("element-summary");
     }
 }
 
-class Elaboration {
-    private static Elaboration elaboration = new Elaboration();
-    public static Elaboration getInstance() { return elaboration; }
+@Data
+class ElementElaboration extends Pane {
+    private static ElementElaboration elementElaboration = new ElementElaboration();
+    public static ElementElaboration getInstance() { return elementElaboration; }
 
     //etc
+    ElementElaboration() {
 
-    Elaboration() {
+        //.prefWidthProperty().bind(this.widthProperty());
+        //.prefHeightProperty().bind(this.heightProperty());
+        setId("element-elaboration");
 
+        //getChildren().add()
     }
 }

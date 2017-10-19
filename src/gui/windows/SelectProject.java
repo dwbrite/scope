@@ -3,18 +3,14 @@ package gui.windows;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.Line;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
-import javafx.stage.Window;
-import nodes.RootNode;
+import util.ScopeConfig;
 
 public class SelectProject extends Application {
 
@@ -44,16 +40,16 @@ public class SelectProject extends Application {
 
 
         VBox center = new VBox(lnNew, lnOpen);
-        center.getStyleClass().add("scope-welcome");
+        center.setId("scope-welcome");
 
         Label lbl = new Label("No Projects");
         Label lbl2 = new Label("Still no Projects");
-        lbl.getStyleClass().add("project-label");
-        lbl2.getStyleClass().add("project-label");
+        lbl.setId("project-label");
+        lbl2.setId("project-label");
 
         ListView<Label> left = new ListView<Label>();
         left.getItems().addAll(lbl, lbl2);
-        left.getStyleClass().add("project-list");
+        left.setId("project-list");
 
 
         BorderPane bp = new BorderPane();
@@ -63,7 +59,7 @@ public class SelectProject extends Application {
         StackPane root = new StackPane(bp);
         Scene scene = new Scene(root);
 
-        scene.getStylesheets().add("gui/styles/stylesheet.css");
+        scene.getStylesheets().add(ScopeConfig.getCss());
 
         primaryStage.setTitle("Welcome to Scope!");
         primaryStage.setScene(scene);
