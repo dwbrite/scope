@@ -3,7 +3,7 @@
     <CLASSES />
     <JAVADOC />
     <SOURCES>
-      <root url="jar://X:/snakeYAML/snakeyaml.zip!/snakeyaml" />
+      <root url="jar://$PROJECT_DIR$/dep/snakeyaml.zip!/snakeyaml" />
     </SOURCES>
   </library>
 </component>
