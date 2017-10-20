@@ -1,5 +1,7 @@
 package nodes;
 
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 import nodes.util.RealNode;
 import nodes.util.SortByNode;
 
@@ -13,5 +15,12 @@ public class PackageNode extends RealNode {
         parent.addChild(this);
 
         this.nodePriority = 1;
+    }
+
+    @Override
+    public void draw(GraphicsContext gc, int x, int y){
+        gc.setStroke(Color.BLUE);
+        gc.strokeRoundRect(160, 60, 30, 30, 10, 10);
+        System.out.println("wtffff");
     }
 }

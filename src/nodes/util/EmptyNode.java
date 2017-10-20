@@ -1,5 +1,7 @@
 package nodes.util;
 
+import java.util.ArrayList;
+
 public class EmptyNode implements INode {
 
     @Override
@@ -15,4 +17,6 @@ public class EmptyNode implements INode {
     public RealNode getLastChild() {
         return children.get(children.size()-1);
     }
+    @Override
+    public ArrayList<RealNode> getChildren() { return children; }
 }

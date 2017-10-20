@@ -1,5 +1,6 @@
 package nodes;
 
+import javafx.scene.canvas.GraphicsContext;
 import nodes.util.EmptyNode;
 import nodes.util.INode;
 import nodes.util.RealNode;
@@ -41,5 +42,10 @@ public class RootNode extends RealNode {
                 ClassNode cn = new ClassNode(fileEntry.toString(), parent);
             }
         }
+    }
+
+    @Override
+    public void draw(GraphicsContext gc, int x, int y){
+
     }
 }

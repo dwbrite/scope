@@ -6,6 +6,7 @@ import javafx.scene.control.TreeView;
 import javafx.scene.layout.Pane;
 import lombok.Data;
 import nodes.RootNode;
+import nodes.util.INode;
 
 @Data
 public class ProjectTree extends TreeView {
@@ -14,12 +15,19 @@ public class ProjectTree extends TreeView {
         return projectTreeUI;
     }
 
-    private TreeItem treeRoot = RootNode.initFromDirectory("Scope", "src").toTreeItem();
+    private TreeItem treeRoot;
+    private RootNode rootNode = RootNode.initFromDirectory("Scope", "src");
 
     private ProjectTree() {
+        treeRoot = rootNode.toTreeItem();
         setRoot(treeRoot);
         treeRoot.setExpanded(true);
 
         setId("project-tree");
+
     }
+
+
 }
+
+

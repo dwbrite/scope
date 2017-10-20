@@ -1,6 +1,7 @@
 package gui.windows.primary;
 
 import gui.windows.primary.controls.ElementView;
+import gui.windows.primary.controls.ProjectCanvas;
 import gui.windows.primary.controls.ProjectMenu;
 import gui.windows.primary.controls.ProjectTree;
 import javafx.application.Application;
@@ -27,7 +28,7 @@ public class PrimaryWindow extends Application {
         SplitPane sp = new SplitPane();
         sp.getItems().addAll(
                 ProjectTree.getInstance(),
-                fp,
+                ProjectCanvas.getInstance(),
                 ElementView.getInstance()
         );
 

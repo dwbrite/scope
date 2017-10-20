@@ -13,7 +13,4 @@ public @Data class Field {
         this.datatype = datatype;
         this.name = name;
     }
-
-
-
 }

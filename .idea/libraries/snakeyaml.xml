@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="snakeyaml">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://X:/snakeYAML/snakeyaml.zip!/snakeyaml" />
+    </SOURCES>
+  </library>
+</component>

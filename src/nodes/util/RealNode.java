@@ -1,6 +1,9 @@
 package nodes.util;
 
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.TreeItem;
+import javafx.scene.paint.Color;
+import lombok.Getter;
 import nodes.ClassNode;
 
 import java.io.File;
@@ -11,6 +14,7 @@ public abstract class RealNode implements INode {
     protected String directory;
     protected String tree;
     protected int nodePriority;
+    @Getter
     protected ArrayList<RealNode> children = new ArrayList<>();
     protected INode parent;
 
@@ -86,4 +90,7 @@ public abstract class RealNode implements INode {
     public RealNode getLastChild() {
         return children.get(children.size()-1);
     }
+
+    public abstract void draw(GraphicsContext gc, int x, int y);
+
 }
