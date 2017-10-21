@@ -64,11 +64,6 @@
   -fx-border-width: 1 0 0 0;
   -fx-border-insets: 0; }
 
-#list-separator {
-  -fx-padding: 0 32 0 32; }
-  #list-separator .line {
-    -fx-border-color: #555555 !important; }
-
 /***************************************************
  *
  * Split Pane / Divider
@@ -77,14 +72,37 @@
 .split-pane {
   -fx-padding: 0; }
   .split-pane:vertical > .split-pane-divider {
-    -fx-padding: 0 1 0 0;
-    -fx-background-color: #282828; }
+    -fx-padding: 0;
+    -fx-background-color: #282828;
+    -fx-border-width: 0 2 0 0;
+    -fx-border-color: #282828; }
   .split-pane:horizontal > .split-pane-divider {
-    -fx-padding: 0 0 1 0;
-    -fx-background-color: #4B4B4B; }
+    -fx-padding: 0;
+    -fx-background-color: #4B4B4B;
+    -fx-border-width: 0 2 0 0;
+    -fx-border-color: #4B4B4B; }
 
-/* horizontal the two nodes are placed to the left/right of each other. */
-/* vertical the two nodes are placed on top of each other. */
+/***************************************************
+ *
+ * Scroll Bar
+ *
+ ************************************************** */
+.scroll-bar {
+  -fx-background-color: transparent;
+  -fx-padding: 2; }
+  .scroll-bar:horizontal {
+    -fx-pref-height: 12px; }
+  .scroll-bar:vertical {
+    -fx-pref-width: 12px; }
+  .scroll-bar .thumb {
+    -fx-background-color: #555555; }
+  .scroll-bar .increment-button, .scroll-bar .decrement-button, .scroll-bar .increment-arrow, .scroll-bar .decrement-arrow {
+    -fx-pref-width: 0px;
+    -fx-pref-height: 0px; }
+
+.corner {
+  -fx-background-color: transparent; }
+
 /********************************************************************************************************************* */
 /*                                              Custom Element CSS                                                    */
 /********************************************************************************************************************* */
@@ -113,12 +131,33 @@
  ************************************************** */
 #element-view {
   -fx-background-color: #3C3F41; }
+  #element-view #summary-title {
+    -fx-font: 16px "Ubuntu";
+    -fx-font-weight: bold;
+    -fx-padding: 8 0 8 0; }
   #element-view, #element-view * {
     -fx-alignment: top-center; }
 
-#summary-title {
-  -fx-font-weight: bold;
-  -fx-padding: 10 0 6 0; }
+/***************************************************
+ *
+ * Class Signature List
+ *
+ ************************************************** */
+.rigid-list-container {
+  -fx-background: #3C3F41;
+  -fx-padding: 0; }
+  .rigid-list-container:focused .rigid-list-view .rigid-list-cell:selected {
+    -fx-background-color: #3460C6; }
+
+.rigid-list-view {
+  -fx-padding: 4 0 4 0; }
+  .rigid-list-view .rigid-list-cell {
+    -fx-font: 15.7px "Ubuntu Mono";
+    -fx-padding: 6 0 6 0; }
+    .rigid-list-view .rigid-list-cell:selected {
+      -fx-background-color: #0D293E; }
+  .rigid-list-view .rigid-list-separator {
+    -fx-padding: 4 32 4 32; }
 
 /***************************************************
  *

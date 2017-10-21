@@ -24,7 +24,6 @@ public class ProjectTree extends TreeView {
         treeRoot.setExpanded(true);
 
         setId("project-tree");
-
     }
 
 

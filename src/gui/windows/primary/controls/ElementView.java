@@ -2,11 +2,17 @@ package gui.windows.primary.controls;
 
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import lombok.Data;
+import nodes.Field;
+import nodes.Function;
+import nodes.util.ClassEnums;
+
+import java.util.ArrayList;
 
 @Data
 public class ElementView extends SplitPane {
@@ -32,51 +38,40 @@ class ElementSummary extends VBox {
     public static ElementSummary getInstance() { return overview; }
 
     private Label title = new Label();
-    private ListView<Label> fields = new ListView<>();
-    private ListView<Label> functions = new ListView<>();
+    RigidListView list = new RigidListView();
+    //private ListView<Label> fields = new ListView<>();
+    //private ListView<Label> functions = new ListView<>();
 
     ElementSummary() {
         Separator listSeparator = new Separator();
-
         title.setText("ClassTitle");
         title.setId("summary-title");
         listSeparator.setId("list-separator");
-        fields.setId("fields-list");
-        functions.setId("functions-list");
 
-        fields.getItems().addAll(
-                new Label("+ tempField"),
-                new Label("+ tempField"),
-                new Label("+ tempField"),
-                new Label("+ tempField")
-        );
+        //*/
+        list.addChildren(
+                new Field(ClassEnums.Visibility.PUBLIC, "String", "idkSomeField").getLabel(),
+                new Field(ClassEnums.Visibility.PUBLIC, "String", "idkSomeField1").getLabel(),
+                new Field(ClassEnums.Visibility.PUBLIC, "String", "idkSomeField2").getLabel(),
+                new Field(ClassEnums.Visibility.PUBLIC, "String", "idkSomeField3").getLabel(),
+                new Field(ClassEnums.Visibility.PUBLIC, "String", "idkSomeField4").getLabel(),
+                new Field(ClassEnums.Visibility.PUBLIC, "String", "idkSomeField5").getLabel(),
+                new Separator(),
+                new Function(ClassEnums.Visibility.PUBLIC, "idkSomeFn", new String[]{"String", "int", "int"}, "String").getLabel()
+                );
+        //*/
 
-
-        functions.getItems().addAll(
-                new Label("+ tempFunction()"),
-                new Label("+ tempFunction()"),
-                new Label("+ tempFunction()"),
-                new Label("+ tempFunction()"),
-                new Label("+ tempFunction()"),
-                new Label("+ tempFunction()"),
-                new Label("+ tempFunction()"),
-                new Label("+ tempFunction()"),
-                new Label("+ tempFunction()"),
-                new Label("+ tempFunction()"),
-                new Label("+ tempFunction()"),
-                new Label("+ tempFunction()"),
-                new Label("+ tempFunction()")
-        );
+        //sp.setContent(alist);
 
         getChildren().addAll(title,
                 new Separator(),
-                fields,
-                listSeparator,
-                functions
+                list
         );
 
+        VBox.setVgrow(list, Priority.ALWAYS);
+
         this.setSpacing(0);
-        setAlignment(Pos.TOP_LEFT);
+        //setAlignment(Pos.TOP_LEFT);
 
         setId("element-summary");
     }

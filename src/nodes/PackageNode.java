@@ -19,8 +19,8 @@ public class PackageNode extends RealNode {
 
     @Override
     public void draw(GraphicsContext gc, int x, int y){
+        //TODO: Make this proper
         gc.setStroke(Color.BLUE);
         gc.strokeRoundRect(160, 60, 30, 30, 10, 10);
-        System.out.println("wtffff");
     }
 }

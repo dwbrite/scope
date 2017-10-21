@@ -13,6 +13,7 @@
   -fx-background-radius: 0, 0, 0
   -fx-font-smoothing-type: gray
 
+
 /***************************************************
 
  Tree/List
@@ -71,11 +72,6 @@
   -fx-border-width: 1 0 0 0
   -fx-border-insets: 0
 
-#list-separator
-  -fx-padding: 0 32 0 32
-  .line
-    -fx-border-color: $highlight !important
-
 
 /***************************************************
 
@@ -85,21 +81,39 @@
 .split-pane
   -fx-padding: 0
   &:vertical > .split-pane-divider
-    -fx-padding: 0 1 0 0
+    -fx-padding: 0
     -fx-background-color: $shadow
+    -fx-border-width: 0 2 0 0
+    -fx-border-color: $shadow
   &:horizontal > .split-pane-divider
-    -fx-padding: 0 0 1 0
+    -fx-padding: 0
     -fx-background-color: $neutral
+    -fx-border-width: 0 2 0 0
+    -fx-border-color: $neutral
 
-/* horizontal the two nodes are placed to the left/right of each other. */
-//.split-pane:horizontal > .split-pane-divider
-  -fx-background-color: -fx-box-border, -fx-inner-border-horizontal
-  -fx-background-insets: 0 //, 0 1 0 1
 
-/* vertical the two nodes are placed on top of each other. */
-//.split-pane:vertical > .split-pane-divider
-  -fx-background-color: -fx-box-border, -fx-inner-border
-  -fx-background-insets: 0 //, 1 0 1 0
+/***************************************************
+
+ Scroll Bar
+
+ ***************************************************/
+.scroll-bar
+  -fx-background-color: transparent
+  -fx-padding: 2
+  &:horizontal
+    -fx-pref-height: 12px
+  &:vertical
+    -fx-pref-width: 12px
+  .thumb
+    -fx-background-color: $highlight
+  .increment-button, .decrement-button, .increment-arrow, .decrement-arrow
+    -fx-pref-width: 0px
+    -fx-pref-height: 0px
+
+.corner
+  -fx-background-color: transparent
+
+
 
 
 
@@ -141,14 +155,34 @@
  ***************************************************/
 #element-view
   -fx-background-color: $bg-2
+  #summary-title
+    -fx-font: 16px "Ubuntu"
+    -fx-font-weight: bold
+    -fx-padding: 8 0 8 0
   &, *
     -fx-alignment: top-center
 
-#element-summary
 
-#summary-title
-  -fx-font-weight: bold
-  -fx-padding: 10 0 6 0
+/***************************************************
+
+ Class Signature List
+
+ ***************************************************/
+.rigid-list-container
+  -fx-background: $bg-2
+  -fx-padding: 0
+  &:focused .rigid-list-view .rigid-list-cell:selected
+      -fx-background-color: $selected
+
+.rigid-list-view
+  -fx-padding: 4 0 4 0
+  .rigid-list-cell
+    -fx-font: $font-size+1 "Ubuntu Mono"
+    -fx-padding: 6 0 6 0
+    &:selected
+      -fx-background-color: $selected-unfocused
+  .rigid-list-separator
+    -fx-padding: 4 32 4 32
 
 
 /***************************************************

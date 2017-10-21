@@ -1,16 +1,27 @@
 package nodes;
 
+import javafx.scene.control.Label;
 import lombok.Data;
 import nodes.util.ClassEnums.Visibility;
 
-public @Data class Field {
+@Data
+public class Field extends Label{
+
     private Visibility visibility;
-    private String datatype;
+    private String type;
     private String name;
 
-    Field(Visibility visibility, String datatype, String name) {
+    public Field(Visibility visibility, String type, String name) {
         this.visibility = visibility;
-        this.datatype = datatype;
+        this.type = type;
         this.name = name;
+    }
+
+    public Label getLabel() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(visibility.toString() + " " + name);
+        builder.append(": " + type);
+        setText(builder.toString());
+        return this;
     }
 }
