@@ -1,0 +1,194 @@
+@import theme-dark
+
+/**********************************************************************************************************************/
+/*                                              Basic CSS                                                             */
+/**********************************************************************************************************************/
+
+*
+  -fx-font-size: $font-size
+  -fx-font-family: $font-family
+  -fx-font-color: $font-color
+  -fx-text-fill: $font-color
+  -fx-background-insets: 0, 0, 0
+  -fx-background-radius: 0, 0, 0
+  -fx-font-smoothing-type: gray
+
+
+/***************************************************
+
+ Tree/List
+
+ ***************************************************/
+.tree-view, .list-view, .tree-cell, .list-cell
+  -fx-background-color: $bg-2
+
+.tree-view, .list-view
+  -fx-padding: 0px
+  &:focused
+    .tree-cell:selected, .list-cell:selected
+      -fx-background-color: $selected
+
+.tree-cell, .list-cell
+  .tree-disclosure-node .arrow
+    -fx-background-color: $font-color
+    -fx-shape: "M 0 -3.5 L 4 0 L 0 3.5 z"
+    -fx-content-display: center
+  &:expanded .tree-disclosure-node .arrow
+    -fx-rotate: 90
+  &:selected
+    -fx-background-color: $selected-unfocused
+
+
+/***************************************************
+
+ Menu Bar
+
+ ***************************************************/
+.menu-bar
+  -fx-padding: 0
+  -fx-background-color: $bg-2
+  -fx-border-color: $shadow
+  -fx-border-width: 0 0 1 0
+
+.menu
+  -fx-padding: 1 0 1 0
+  -fx-spacing: 0
+  &:showing
+    -fx-background-color: $selected !important
+  &:hover
+    -fx-background-color: inherit
+
+.mnemonic-underline
+  -fx-stroke: -fx-text-fill
+
+
+/***************************************************
+
+ Separator
+
+ ***************************************************/
+.separator:horizontal .line
+  -fx-border-color: $neutral
+  -fx-border-width: 1 0 0 0
+  -fx-border-insets: 0
+
+
+/***************************************************
+
+ Split Pane / Divider
+
+ ***************************************************/
+.split-pane
+  -fx-padding: 0
+  &:vertical > .split-pane-divider
+    -fx-padding: 0
+    -fx-background-color: $shadow
+    -fx-border-width: 0 2 0 0
+    -fx-border-color: $shadow
+  &:horizontal > .split-pane-divider
+    -fx-padding: 0
+    -fx-background-color: $neutral
+    -fx-border-width: 0 2 0 0
+    -fx-border-color: $neutral
+
+
+/***************************************************
+
+ Scroll Bar
+
+ ***************************************************/
+.scroll-bar
+  -fx-background-color: transparent
+  -fx-padding: 2
+  &:horizontal
+    -fx-pref-height: 12px
+  &:vertical
+    -fx-pref-width: 12px
+  .thumb
+    -fx-background-color: $highlight
+  .increment-button, .decrement-button, .increment-arrow, .decrement-arrow
+    -fx-pref-width: 0px
+    -fx-pref-height: 0px
+
+.corner
+  -fx-background-color: transparent
+
+
+
+
+
+
+
+
+
+/**********************************************************************************************************************/
+/*                                              Custom Element CSS                                                    */
+/**********************************************************************************************************************/
+
+
+/***************************************************
+
+ Project Menu
+
+ ***************************************************/
+#project-menu
+  -fx-background-color: $bg-2
+  -fx-border-color: $highlight
+  -fx-border-width: 0 0 1 0
+
+
+/***************************************************
+
+ Project Tree
+
+ ***************************************************/
+#project-tree
+  -fx-background-color: $bg-2
+  //-fx-border-color: $shadow
+  //-fx-border-width: 0 1 0 0
+
+
+/***************************************************
+
+ Project Element View
+
+ ***************************************************/
+#element-view
+  -fx-background-color: $bg-2
+  #summary-title
+    -fx-font: 16px "Ubuntu"
+    -fx-font-weight: bold
+    -fx-padding: 8 0 8 0
+  &, *
+    -fx-alignment: top-center
+
+
+/***************************************************
+
+ Class Signature List
+
+ ***************************************************/
+.rigid-list-container
+  -fx-background: $bg-2
+  -fx-padding: 0
+  &:focused .rigid-list-view .rigid-list-cell:selected
+      -fx-background-color: $selected
+
+.rigid-list-view
+  -fx-padding: 4 0 4 0
+  .rigid-list-cell
+    -fx-font: $font-size+1 "Ubuntu Mono"
+    -fx-padding: 6 0 6 0
+    &:selected
+      -fx-background-color: $selected-unfocused
+  .rigid-list-separator
+    -fx-padding: 4 32 4 32
+
+
+/***************************************************
+
+ Project View
+
+ ***************************************************/
+#center-pane
+  -fx-background-color: $bg-0

@@ -1,0 +1,170 @@
+/********************************************************************************************************************* */
+/*                                              Basic CSS                                                             */
+/********************************************************************************************************************* */
+* {
+  -fx-font-size: 14.7px;
+  -fx-font-family: "Ubuntu";
+  -fx-font-color: #bbbbbb;
+  -fx-text-fill: #bbbbbb;
+  -fx-background-insets: 0, 0, 0;
+  -fx-background-radius: 0, 0, 0;
+  -fx-font-smoothing-type: gray; }
+
+/***************************************************
+ *
+ * Tree/List
+ *
+ ************************************************** */
+.tree-view, .list-view, .tree-cell, .list-cell {
+  -fx-background-color: #3C3F41; }
+
+.tree-view, .list-view {
+  -fx-padding: 0px; }
+  .tree-view:focused .tree-cell:selected, .tree-view:focused .list-cell:selected, .list-view:focused .tree-cell:selected, .list-view:focused .list-cell:selected {
+    -fx-background-color: #3460C6; }
+
+.tree-cell .tree-disclosure-node .arrow, .list-cell .tree-disclosure-node .arrow {
+  -fx-background-color: #bbbbbb;
+  -fx-shape: "M 0 -3.5 L 4 0 L 0 3.5 z";
+  -fx-content-display: center; }
+.tree-cell:expanded .tree-disclosure-node .arrow, .list-cell:expanded .tree-disclosure-node .arrow {
+  -fx-rotate: 90; }
+.tree-cell:selected, .list-cell:selected {
+  -fx-background-color: #0D293E; }
+
+/***************************************************
+ *
+ * Menu Bar
+ *
+ ************************************************** */
+.menu-bar {
+  -fx-padding: 0;
+  -fx-background-color: #3C3F41;
+  -fx-border-color: #282828;
+  -fx-border-width: 0 0 1 0; }
+
+.menu {
+  -fx-padding: 1 0 1 0;
+  -fx-spacing: 0; }
+  .menu:showing {
+    -fx-background-color: #3460C6 !important; }
+  .menu:hover {
+    -fx-background-color: inherit; }
+
+.mnemonic-underline {
+  -fx-stroke: -fx-text-fill; }
+
+/***************************************************
+ *
+ * Separator
+ *
+ ************************************************** */
+.separator:horizontal .line {
+  -fx-border-color: #4B4B4B;
+  -fx-border-width: 1 0 0 0;
+  -fx-border-insets: 0; }
+
+/***************************************************
+ *
+ * Split Pane / Divider
+ *
+ ************************************************** */
+.split-pane {
+  -fx-padding: 0; }
+  .split-pane:vertical > .split-pane-divider {
+    -fx-padding: 0;
+    -fx-background-color: #282828;
+    -fx-border-width: 0 2 0 0;
+    -fx-border-color: #282828; }
+  .split-pane:horizontal > .split-pane-divider {
+    -fx-padding: 0;
+    -fx-background-color: #4B4B4B;
+    -fx-border-width: 0 2 0 0;
+    -fx-border-color: #4B4B4B; }
+
+/***************************************************
+ *
+ * Scroll Bar
+ *
+ ************************************************** */
+.scroll-bar {
+  -fx-background-color: transparent;
+  -fx-padding: 2; }
+  .scroll-bar:horizontal {
+    -fx-pref-height: 12px; }
+  .scroll-bar:vertical {
+    -fx-pref-width: 12px; }
+  .scroll-bar .thumb {
+    -fx-background-color: #555555; }
+  .scroll-bar .increment-button, .scroll-bar .decrement-button, .scroll-bar .increment-arrow, .scroll-bar .decrement-arrow {
+    -fx-pref-width: 0px;
+    -fx-pref-height: 0px; }
+
+.corner {
+  -fx-background-color: transparent; }
+
+/********************************************************************************************************************* */
+/*                                              Custom Element CSS                                                    */
+/********************************************************************************************************************* */
+/***************************************************
+ *
+ * Project Menu
+ *
+ ************************************************** */
+#project-menu {
+  -fx-background-color: #3C3F41;
+  -fx-border-color: #555555;
+  -fx-border-width: 0 0 1 0; }
+
+/***************************************************
+ *
+ * Project Tree
+ *
+ ************************************************** */
+#project-tree {
+  -fx-background-color: #3C3F41; }
+
+/***************************************************
+ *
+ * Project Element View
+ *
+ ************************************************** */
+#element-view {
+  -fx-background-color: #3C3F41; }
+  #element-view #summary-title {
+    -fx-font: 16px "Ubuntu";
+    -fx-font-weight: bold;
+    -fx-padding: 8 0 8 0; }
+  #element-view, #element-view * {
+    -fx-alignment: top-center; }
+
+/***************************************************
+ *
+ * Class Signature List
+ *
+ ************************************************** */
+.rigid-list-container {
+  -fx-background: #3C3F41;
+  -fx-padding: 0; }
+  .rigid-list-container:focused .rigid-list-view .rigid-list-cell:selected {
+    -fx-background-color: #3460C6; }
+
+.rigid-list-view {
+  -fx-padding: 4 0 4 0; }
+  .rigid-list-view .rigid-list-cell {
+    -fx-font: 15.7px "Ubuntu Mono";
+    -fx-padding: 6 0 6 0; }
+    .rigid-list-view .rigid-list-cell:selected {
+      -fx-background-color: #0D293E; }
+  .rigid-list-view .rigid-list-separator {
+    -fx-padding: 4 32 4 32; }
+
+/***************************************************
+ *
+ * Project View
+ *
+ ************************************************** */
+#center-pane {
+  -fx-background-color: #2B2B2B; }
+
+/*# sourceMappingURL=style.css.map */

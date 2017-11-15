@@ -2,9 +2,10 @@
   <library name="dep">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/dep/lombok.jar!/" />
-      <root url="jar://$PROJECT_DIR$/dep/snakeyaml.zip!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/dep/snakeyaml.zip!/snakeyaml" />
+    </SOURCES>
   </library>
 </component>
