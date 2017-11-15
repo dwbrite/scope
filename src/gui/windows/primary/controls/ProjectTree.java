@@ -8,6 +8,8 @@ import lombok.Data;
 import nodes.RootNode;
 import nodes.util.INode;
 
+//This class serves as the tree on the left of the window. It provides largely the same functionality as the canvas
+//to the left of the window.
 @Data
 public class ProjectTree extends TreeView {
     private static ProjectTree projectTreeUI = new ProjectTree();

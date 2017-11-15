@@ -12,6 +12,7 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import util.ScopeConfig;
 
+//The project selection window.
 public class SelectProject extends Application {
 
     @Override

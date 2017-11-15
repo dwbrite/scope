@@ -2,6 +2,7 @@ package nodes.util;
 
 import java.util.ArrayList;
 
+
 public class EmptyNode implements INode {
 
     @Override

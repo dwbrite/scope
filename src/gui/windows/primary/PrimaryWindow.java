@@ -11,6 +11,8 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import util.ScopeConfig;
 
+
+//This class is the main window of the program. It contains the other various panes.
 public class PrimaryWindow extends Application {
 
     @Override

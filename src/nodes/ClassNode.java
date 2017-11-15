@@ -6,6 +6,7 @@ import nodes.util.RealNode;
 
 import java.util.ArrayList;
 
+
 public class ClassNode extends RealNode {
 
     public ArrayList<Field> fields;
@@ -30,8 +31,8 @@ public class ClassNode extends RealNode {
     @Override
     public void draw(GraphicsContext gc, int x, int y){
         gc.setFill(Color.GREEN);
-
-        gc.strokeOval(60, 60, 30, 30);
+        int wh = 30;
+        gc.strokeOval(x-(wh/2), y-(wh/2), wh, wh);
     }
 
 }

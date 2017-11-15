@@ -9,6 +9,8 @@ import nodes.ClassNode;
 import java.io.File;
 import java.util.ArrayList;
 
+//RealNode acts as a parent class for Class, Package, and Rootnode.
+
 public abstract class RealNode implements INode {
     protected String name;
     protected String directory;

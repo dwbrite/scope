@@ -7,6 +7,8 @@ import nodes.util.RealNode;
 
 import java.io.File;
 
+//This represents the root of the project within Scope's interface.
+
 public class RootNode extends RealNode {
 
     RootNode(String directory, INode parent) {

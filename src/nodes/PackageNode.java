@@ -7,6 +7,8 @@ import nodes.util.SortByNode;
 
 import java.io.File;
 
+//This represents a package within Scope's interface.
+
 public class PackageNode extends RealNode {
 
     public PackageNode(String directory, RealNode parent) {
@@ -21,6 +23,7 @@ public class PackageNode extends RealNode {
     public void draw(GraphicsContext gc, int x, int y){
         //TODO: Make this proper
         gc.setStroke(Color.BLUE);
-        gc.strokeRoundRect(160, 60, 30, 30, 10, 10);
+        int wh = 30;
+        gc.strokeRoundRect(x - (wh/2), y - (wh/2), wh, wh, 10, 10);
     }
 }

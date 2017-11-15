@@ -9,6 +9,7 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.Pane;
 import lombok.Data;
 
+//This class serves as the main menubar at the top of the window.
 @Data
 public class ProjectMenu extends Pane {
     private static ProjectMenu projectMenuUI = new ProjectMenu();
