@@ -9,25 +9,33 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import lombok.Getter;
+import lombok.Setter;
+import nodes.util.RealNode;
 import util.ScopeConfig;
 
 
 //This class is the main window of the program. It contains the other various panes.
 public class PrimaryWindow extends Application {
 
+    @Getter private static PrimaryWindow instance;
+
+    @Getter private RealNode selectedNode;
+    private BorderPane bp = new BorderPane();
+    private Pane fp = new Pane();
+    private SplitPane sp = new SplitPane();
+
     @Override
     public void start(Stage primaryStage) {
-        BorderPane bp = new BorderPane();
+        instance = this;
 
         // Populate border pane
         bp.setTop(ProjectMenu.getInstance());
         //bp.setLeft(ProjectTree.getInstance());
         //bp.setRight(ElementView.getInstance());
 
-        Pane fp = new Pane();
         fp.setId("center-pane");
 
-        SplitPane sp = new SplitPane();
         sp.getItems().addAll(
                 ProjectTree.getInstance(),
                 ProjectCanvas.getInstance(),
@@ -37,19 +45,26 @@ public class PrimaryWindow extends Application {
         sp.setDividerPosition(0, 0.05);
         bp.setCenter(sp);
 
-
         Scene scene = new Scene(bp);
 
         scene.getStylesheets().add(ScopeConfig.getCss());
 
-        primaryStage.setTitle("Hello World!");
+        primaryStage.setTitle("Scope!");
         primaryStage.setScene(scene);
-        primaryStage.setWidth(1024);
-        primaryStage.setHeight(640);
+        primaryStage.setWidth(1600);
+        primaryStage.setHeight(960);
         primaryStage.show();
+
+        PrimaryWindow.getInstance().setSelectedNode(ProjectTree.getInstance().getRootNode());
     }
 
     public static void createWindow() {
         launch();
+    }
+
+    public void setSelectedNode(RealNode node) {
+        this.selectedNode = node;
+        ProjectCanvas.getInstance().setNode(node);
+        ElementView.getInstance().setNode(node);
     }
 }

@@ -8,9 +8,8 @@ import java.util.ArrayList;
 public interface INode {
     ArrayList<RealNode> children = new ArrayList<>();
 
-    public String toString();
-    public RealNode getLastChild();
-    public void addChild(RealNode child);
-    public ArrayList<RealNode> getChildren();
-
+    String toString();
+    RealNode getLastChild();
+    void addChild(RealNode child);
+    ArrayList<RealNode> getChildren();
 }

@@ -1,20 +1,18 @@
 package gui.windows.primary.controls;
 
 import javafx.geometry.Orientation;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import nodes.ClassNode;
 import nodes.Field;
 import nodes.Function;
-import nodes.util.ClassEnums;
+import nodes.util.RealNode;
 
-import java.util.ArrayList;
-
-@Data
+@Data @EqualsAndHashCode(callSuper=false)
 public class ElementView extends SplitPane {
     private static ElementView elementView = new ElementView();
     public static ElementView getInstance() {
@@ -23,45 +21,31 @@ public class ElementView extends SplitPane {
 
     private ElementView() {
         getItems().addAll(
-                ElementSummary.getInstance(),
-                ElementElaboration.getInstance()
+                ElementSummary.getInstance()
         );
         setOrientation(Orientation.VERTICAL);
 
         setId("element-view");
     }
+
+    public void setNode(RealNode node) {
+        ElementSummary.getInstance().setNode(node);
+    }
 }
 
-@Data
+@Data @EqualsAndHashCode(callSuper=false)
 class ElementSummary extends VBox {
     private static ElementSummary overview = new ElementSummary();
     public static ElementSummary getInstance() { return overview; }
 
     private Label title = new Label();
-    RigidListView list = new RigidListView();
-    //private ListView<Label> fields = new ListView<>();
-    //private ListView<Label> functions = new ListView<>();
+    ListView list = new ListView();
 
-    ElementSummary() {
+    private ElementSummary() {
         Separator listSeparator = new Separator();
-        title.setText("ClassTitle");
+        title.setText("");
         title.setId("summary-title");
         listSeparator.setId("list-separator");
-
-        //*/
-        list.addChildren(
-                new Field(ClassEnums.Visibility.PUBLIC, "String", "idkSomeField").getLabel(),
-                new Field(ClassEnums.Visibility.PUBLIC, "String", "idkSomeField1").getLabel(),
-                new Field(ClassEnums.Visibility.PUBLIC, "String", "idkSomeField2").getLabel(),
-                new Field(ClassEnums.Visibility.PUBLIC, "String", "idkSomeField3").getLabel(),
-                new Field(ClassEnums.Visibility.PUBLIC, "String", "idkSomeField4").getLabel(),
-                new Field(ClassEnums.Visibility.PUBLIC, "String", "idkSomeField5").getLabel(),
-                new Separator(),
-                new Function(ClassEnums.Visibility.PUBLIC, "idkSomeFn", new String[]{"String", "int", "int"}, "String").getLabel()
-                );
-        //*/
-
-        //sp.setContent(alist);
 
         getChildren().addAll(title,
                 new Separator(),
@@ -69,21 +53,35 @@ class ElementSummary extends VBox {
         );
 
         VBox.setVgrow(list, Priority.ALWAYS);
-
         this.setSpacing(0);
-        //setAlignment(Pos.TOP_LEFT);
 
         setId("element-summary");
     }
+
+    public void setNode(RealNode node) {
+        list.getItems().clear();
+        if (node instanceof ClassNode) {
+            title.setText(node.toString());
+            for (Field field : ((ClassNode) node).fields) {
+                list.getItems().add(field.getLabel());
+            }
+            list.getItems().add(new Separator());
+            for (Function function : ((ClassNode) node).functions) {
+                list.getItems().add(function.getLabel());
+            }
+        } else {
+            title.setText("");
+        }
+    }
 }
 
-@Data
+@Data @EqualsAndHashCode(callSuper=false)
 class ElementElaboration extends Pane {
     private static ElementElaboration elementElaboration = new ElementElaboration();
     public static ElementElaboration getInstance() { return elementElaboration; }
 
     //etc
-    ElementElaboration() {
+    private ElementElaboration() {
 
         //.prefWidthProperty().bind(this.widthProperty());
         //.prefHeightProperty().bind(this.heightProperty());

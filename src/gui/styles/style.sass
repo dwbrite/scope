@@ -144,8 +144,6 @@
  ***************************************************/
 #project-tree
   -fx-background-color: $bg-2
-  //-fx-border-color: $shadow
-  //-fx-border-width: 0 1 0 0
 
 
 /***************************************************
@@ -192,3 +190,35 @@
  ***************************************************/
 #center-pane
   -fx-background-color: $bg-0
+  -fx-background-image: url('tux.png')
+  -fx-background-repeat: no-repeat
+  -fx-background-position: center center
+  -fx-background-size: 256 256
+  -fx-min-width: 288
+
+
+/***************************************************
+
+ Real Nodes
+
+ ***************************************************/
+.real-node
+  -fx-min-width: 256
+  -fx-min-height: 128
+  -fx-background-color: $bg-2
+  -fx-background-radius: 8
+  -fx-padding: 16
+  -fx-alignment: center
+
+  \:selected
+    -fx-border-color: $selected
+    -fx-border-width: 4
+    -fx-border-radius: 8
+
+
+  .real-node-type
+    -fx-text-fill: #777777
+
+  .real-node-name
+    -fx-padding: 24
+    -fx-font-weight: bold

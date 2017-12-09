@@ -2,16 +2,17 @@ package nodes;
 
 import javafx.scene.control.Label;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import nodes.util.ClassEnums.Visibility;
 
-@Data
+@Data @EqualsAndHashCode(callSuper=false)
 public class Field extends Label{
 
     private Visibility visibility;
     private String type;
     private String name;
 
-    public Field(Visibility visibility, String type, String name) {
+    Field(Visibility visibility, String type, String name) {
         this.visibility = visibility;
         this.type = type;
         this.name = name;
@@ -19,8 +20,8 @@ public class Field extends Label{
 
     public Label getLabel() {
         StringBuilder builder = new StringBuilder();
-        builder.append(visibility.toString() + " " + name);
-        builder.append(": " + type);
+        builder.append(visibility.toString()).append(" ").append(name);
+        builder.append(": ").append(type);
         setText(builder.toString());
         return this;
     }

@@ -2,6 +2,7 @@
   <library name="dep">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/dep/lombok.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dep/qdox-2.0-M7.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

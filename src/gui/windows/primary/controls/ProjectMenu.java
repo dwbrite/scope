@@ -8,9 +8,10 @@ import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.Pane;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 //This class serves as the main menubar at the top of the window.
-@Data
+@Data @EqualsAndHashCode(callSuper=false)
 public class ProjectMenu extends Pane {
     private static ProjectMenu projectMenuUI = new ProjectMenu();
     public static ProjectMenu getInstance() {

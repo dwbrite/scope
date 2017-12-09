@@ -165,6 +165,33 @@
  *
  ************************************************** */
 #center-pane {
-  -fx-background-color: #2B2B2B; }
+  -fx-background-color: #2B2B2B;
+  -fx-background-image: url("tux.png");
+  -fx-background-repeat: no-repeat;
+  -fx-background-position: center center;
+  -fx-background-size: 256 256;
+  -fx-min-width: 288; }
+
+/***************************************************
+ *
+ * Real Nodes
+ *
+ ************************************************** */
+.real-node {
+  -fx-min-width: 256;
+  -fx-min-height: 128;
+  -fx-background-color: #3C3F41;
+  -fx-background-radius: 8;
+  -fx-padding: 16;
+  -fx-alignment: center; }
+  .real-node :selected {
+    -fx-border-color: #3460C6;
+    -fx-border-width: 4;
+    -fx-border-radius: 8; }
+  .real-node .real-node-type {
+    -fx-text-fill: #777777; }
+  .real-node .real-node-name {
+    -fx-padding: 24;
+    -fx-font-weight: bold; }
 
 /*# sourceMappingURL=style.css.map */
